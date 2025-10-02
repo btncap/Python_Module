@@ -1,5 +1,0 @@
-C = 2000
-i = 0.05
-n = 7
-FV = C * (((1 + i) ** n - 1) / i)
-print("Future Value of the investment: $", round(FV, 2))
