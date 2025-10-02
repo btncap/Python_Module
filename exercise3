@@ -1,0 +1,7 @@
+b = 0.5
+btc = 40000
+eth = 2000
+total_val = b * btc
+print(total_val)
+eth_amount = total_val / eth
+print("You would get", eth_amount, "ETH")
