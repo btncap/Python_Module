@@ -1,0 +1,141 @@
+##EXERCISE1##
+usdt_transactions = [230.50, 689.00, 56.75, 89.99, 143.20, 897.45]
+usdc_transactions = [120.10, 89.50, 450.25, 45.75, 897.00, 569.80]
+dai_transactions = [57.35, 100.00, 220.40, 300.99, 50.25, 20.15, 11.05]
+all_transactions = usdt_transactions + usdc_transactions + dai_transactions
+print("All Transactions:", all_transactions)
+
+all_transactions = sum([usdt_transactions, usdc_transactions, dai_transactions], [])
+print(all_transactions)
+
+import itertools
+all_transactions = list(itertools.chain(usdt_transactions, usdc_transactions, dai_transactions))
+print("All Transactions:", all_transactions)
+
+##EXERCISE2##
+
+#TASK1
+bank_transfers = [
+    [1250.75, 2300.00, 875.60],        # Bank A
+    [560.40, 1450.25, 990.10],         # Bank B
+    [720.50, 3100.99, 2150.25, 430.75] # Bank C
+]
+all_transfers = sum(bank_transfers, [])
+print("All Transfers:", all_transfers)
+
+#TASK2
+max_transfer = max(all_transfers)
+min_transfer = min(all_transfers)
+mean_transfer = sum(all_transfers) / len(all_transfers)
+
+print("Maximum transfer:", max_transfer)
+print("Minimum transfer:", min_transfer)
+print("Mean transfer:", mean_transfer)
+
+#TASK3
+all_transfers.sort()
+print("Sorted Transfers:", all_transfers)# smallest to largest
+all_transfers.sort(reverse=True)
+print("Sorted Transfers (Descending):", all_transfers) # largest to smallest
+
+##EXERCISE3##
+
+month1 = (('net earning', 125633.11), ('cash flow', 7406.23))
+month2 = (('net earning', 123711.12), ('cash flow', 8000.458))
+month3 = (('net earning', 32487.23),  ('cash flow', 5000.458))
+
+total_net_earning = month1[0][1] + month2[0][1] + month3[0][1]
+total_cash_flow = month1[1][1] + month2[1][1] + month3[1][1]
+print("Total Net Earning:", total_net_earning)
+print("Total Cash Flow:", total_cash_flow)
+
+average_monthly_net_earning = total_net_earning / 3
+print("Average Monthly Net Earning:", average_monthly_net_earning)
+
+
+net_earnings = [
+    month1[0][1],
+    month2[0][1],
+    month3[0][1]
+]
+lowest_net_earning = min(net_earnings)
+lowest_net_earning_month = net_earnings.index(lowest_net_earning) + 1 # Adding 1 to convert index to month number
+print("Lowest Net Earning Month:", lowest_net_earning_month)
+print("Lowest Net Earning:", lowest_net_earning)
+
+##EXERCISE4##
+
+list_a = list(range(1,100,10))
+list_b= list(range(300,500,30))
+print("List A:", list_a)
+print("List B:", list_b)
+
+list_of_list =[]
+
+list_of_list.append(list_a)
+list_of_list.append(list_b)
+print("List of Lists:", list_of_list)
+
+##EXERCISE5##
+annuity= []
+i = 0.05
+n= 5
+tenant_payment_1 = 1000
+tenant_payment_2= 2300
+tenant_payment_3 = 750
+pv_1 = round(tenant_payment_1 * ((1 - (1 + i)**-n) / i) * (1 + i), 3)
+pv_2 = round(tenant_payment_2 * ((1 - (1 + i)**-n) / i) * (1 + i), 3)
+pv_3 = round(tenant_payment_3 * ((1 - (1 + i)**-n) / i) * (1 + i), 3)
+
+annuity.extend([pv_1, pv_2, pv_3])
+max_pv = max(annuity)
+min_pv = min(annuity)
+print("Annuity Present Values:", annuity)
+print("Maximum Present Value:", max_pv)
+print("Minimum Present Value:", min_pv)
+
+##EXERCISE6##
+
+month1 = (('Comprehensive', 250, 120), ('Third-Party', 150, 90))
+month2 = (('Comprehensive', 260, 140), ('Third-Party', 155, 100))
+month3 = (('Comprehensive', 255, 130), ('Third-Party', 160, 95))
+
+net_income_month1_comprehensive = month1[0][1] - month1[0][2]
+net_income_month1_third_party = month1[1][1] - month1[1][2]
+net_income_month2_comprehensive = month2[0][1] - month2[0][2]
+net_income_month2_third_party = month2[1][1] - month2[1][2]
+net_income_month3_comprehensive = month3[0][1] - month3[0][2]
+net_income_month3_third_party = month3[1][1] - month3[1][2]
+
+total_comprehensive_income = (net_income_month1_comprehensive +
+                              net_income_month2_comprehensive +
+                              net_income_month3_comprehensive)
+total_third_party_income = (net_income_month1_third_party +
+                            net_income_month2_third_party +
+                            net_income_month3_third_party)  
+print("Total Comprehensive Income:", total_comprehensive_income)
+print("Total Third-Party Income:", total_third_party_income)       
+
+##loops##
+
+months = [
+    (('Comprehensive', 250, 120), ('Third-Party', 150, 90)),
+    (('Comprehensive', 260, 140), ('Third-Party', 155, 100)),
+    (('Comprehensive', 255, 130), ('Third-Party', 160, 95))
+]
+
+total_comprehensive_income = 0
+total_third_party_income = 0
+
+for month in months:
+    comprehensive = month[0]
+    third_party = month[1]
+    
+    net_income_comprehensive = comprehensive[1] - comprehensive[2]
+    net_income_third_party = third_party[1] - third_party[2]
+    
+    total_comprehensive_income += net_income_comprehensive
+    total_third_party_income += net_income_third_party
+print("Total Comprehensive Income:", total_comprehensive_income)
+print("Total Third-Party Income:", total_third_party_income)
+
