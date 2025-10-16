@@ -1,0 +1,85 @@
+
+#EXERCISE1
+x = "python interpreter and the extensive standard library are freely available in source or binary form for all major platforms from the Python Web site, https://www.python.org/"
+x = x.capitalize()
+
+x="The " + x + "."
+print(x)
+
+#EXERCISE2
+print("*hello* "*21)
+
+#EXERCISE3
+x = "Your line spacing options are not limited to the ones in the Line and Paragraph Spacing menu. To adjust spacing with more precision, select Line Spacing Options from the menu to access the Paragraph dialog box.You will then have a few additional options you can use to customize spacing."
+x =x.replace("are not", "aren't")
+x = x.replace("you will"," you'll")
+x = x.replace(". ", ".\n")
+print(x)
+
+#EXERCISE4
+#Name = "John"
+#Amount = 5786.72478
+#print("Hey! %s, your account has been credited £ %.3f" % (Name, Amount))
+
+#EXERCISE5
+
+import datetime
+current_date = datetime.datetime.now()
+print("Current Date:", current_date)
+
+current_date_str= current_date.strftime("%Y-%m-%d %H:%M:%S.%f")
+date_part, time_part = current_date_str.split(" ")
+print("Date Part:", date_part)
+print("Time Part:", time_part)
+
+#exercise 6
+#name =input("what is your name? ")
+#city = input("which city do you live in? ")
+#country = input("which country is that? ")
+#print("Nice to meet you %s from %s, %s!" % (name, city, country))
+
+#exercise7
+
+
+sentence1 = "Simple is better than complex ."
+sentence2 = "Complex is better than complicated ."
+
+# Step 1
+list1 = sentence1.split(' ')
+list2 = sentence2.split(' ')
+set1 = set(list1)
+set2 = set(list2)
+
+print("Set 1:", set1)
+print("Set 2:", set2)
+
+# Step 2
+union_set = set1.union(set2)
+intersection_set = set1.intersection(set2)
+difference_set = set1.difference(set2)
+
+print("Union:", union_set)
+print("Intersection:", intersection_set)
+print("Difference (Set1 - Set2):", difference_set)
+
+# Step 3
+print("Are the two sets disjoint?:", set1.isdisjoint(set2))
+print("Is Set1 a subset of Set2?:", set1.issubset(set2))
+print("Is Set1 a superset of Set2?:", set1.issuperset(set2))
+
+#exercise8
+Company = {
+    "Department1": {"name": "Data Governance", "Revenue": 20011.78},
+    "Department2": {"name": "Electricity Pricing", "Revenue": 55451.901},
+    "Department3": {"name": "Gas Pricing", "Revenue": 62728.99},
+    "Department4": {"name": "Smart Meter", "Revenue": 41728.99}
+}
+
+print(Company.keys())
+print(Company.keys())
+print(Company["Department1"].keys())
+print(Company["Department2"])
+print(Company["Department3"])
+print(Company["Department2"]["name"])
+print(Company["Department4"]["Revenue"])
+print(Company["Department4"].keys())
