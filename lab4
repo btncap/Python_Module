@@ -1,0 +1,117 @@
+#exercise 1
+num1 = float(input("Enter the first number: "))
+num2 = float(input("Enter the second number: "))
+
+print("Minimum value:", min(num1, num2))
+print("Maximum value:", max(num1, num2))
+
+#exercise 2
+interests = []
+
+for i in range(3):
+    item = input(f"Enter interest {i+1}: ")
+    interests.append(item)
+
+print("Your interests are:", interests)
+
+#exercise 3
+for i in range(1,31):
+    if i % 3 == 0 and i % 5 == 0:
+        print(" Edinbrough")
+    elif i % 3 == 0:
+        print("Liverpool")
+    elif i % 5 == 0:
+        print("Manchester")
+    else:
+        print(i)
+#exercise 4
+departments = ["Department1", "Department2", "Department3"]
+cities = ["Hamburgh", "Barcelona", "London"]
+countries = ["Germany", "Spain", "UK"]
+
+company = {}
+
+for dept, city, country in zip(departments, cities, countries):
+    company[dept] = {"city": city, "country": country}
+
+print(company)
+
+#exercise 5
+#step1
+import random
+flip = random.randint(0, 1)
+if flip == 0:
+    print("Heads")
+else:
+    print("Tails") 
+
+#step2
+import random
+
+for i in range(100):
+    flip = random.randint(0, 1)
+    if flip == 0:
+        print("Heads")
+    else:
+        print("Tails")
+
+#step3
+import random
+
+heads = tails = 0
+
+for i in range(100):
+    if random.randint(0, 1) == 0:
+        heads += 1
+        result = "Heads"
+    else:
+        tails += 1
+        result = "Tails"
+    print(f"Flip {i+1}: {result} (H:{heads}, T:{tails})")
+
+print(f"\nHeads: {heads}, Tails: {tails}")
+
+#step4
+import random
+
+bias = float(input("Heads probability (0–1): "))
+flips = 100
+heads = sum(random.random() < bias for _ in range(flips))
+tails = flips - heads
+
+print(f"Heads: {heads}, Tails: {tails}, Actual bias: {heads / flips:.3f}")
+
+#step5
+import random
+
+bias = 0.2  # heads olasılığı %20
+flips_list = [100, 1000, 10000]
+
+for flips in flips_list:
+    heads = sum(random.random() < bias for _ in range(flips))
+    tails = flips - heads
+    actual_bias = heads / flips
+    print(f"Flips: {flips:5d} | Heads: {heads:5d} | Tails: {tails:5d} | Actual bias: {actual_bias:.3f}")
+
+
+
+        
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
