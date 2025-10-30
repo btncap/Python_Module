@@ -1,0 +1,119 @@
+#exercise 1
+def iterative_factorial(n):
+    if not isinstance(n, int):
+        print("Error: n must be an integer.")
+        return
+    if n < 0:
+        print("Error: n must be non-negative.")
+        return
+
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+
+# Test the function
+print(iterative_factorial(5))  
+print(iterative_factorial(-3)) 
+
+#exercise 2
+def total_odd_year_investment(returns):
+    if len(returns) == 0:
+        return 0
+    return 1000* returns[0] + total_odd_year_investment(returns[2:])
+
+return_list = [1.03, 0.98, 1.07, 1.02, 1.05, 0.99]
+
+print(total_odd_year_investment(return_list))
+
+#exercise 3
+
+# Function to calculate Future Value (FV)
+def future_value(C, i, n):
+    FV = C * ((1 + i)**n - 1) / i
+    return FV
+
+
+# Test data
+x1 = future_value(2000, 0.05, 7)     # 5% interest, 7 years
+x2 = future_value(3500, 0.055, 6)    # 5.5% interest, 6 years
+x3 = future_value(5500, 0.065, 8)    # 6.5% interest, 8 years
+
+# Print results
+print(f"Person x1's future value: ${x1:.2f}")
+print(f"Person x2's future value: ${x2:.2f}")
+print(f"Person x3's future value: ${x3:.2f}")
+
+#exercise 4
+#part a
+import sys
+
+def check_inner_keys(data_dict):
+    # Get the set of keys from the first inner dictionary
+    first_keys = None
+    for outer_key, inner_dict in data_dict.items():
+        if first_keys is None:
+            first_keys = set(inner_dict.keys())
+        else:
+            # Compare current quarter's keys with the first quarter's keys
+            if set(inner_dict.keys()) != first_keys:
+                sys.exit(f"Error: Inner keys mismatch in {outer_key}")
+    print("All fiscal quarters have uniform inner keys ✅")
+
+# Test data
+xyzcompany_dict1 = {
+    'fiscal_quarter1': {"Month":["Jan","Feb","Mar"],
+                        "Income": [9900,9346,9000],
+                        "Saving": (7231.67, 3675,2347)}, 
+    'fiscal_quarter2': {"Month":["Apr","May","Jun"],
+                        "Income": [13400,9789,8690],
+                        "Saving": (9679.32, 786.56,4359)},
+    'fiscal_quarter3': {"Month":["Jul","Aug","Sep"],
+                        "Income": [13202.878,8792.89,8110.87],
+                        "Saving": (9679.32, 786.56,4359)}
+}
+
+xyzcompany_dict2 = {
+    'fiscal_quarter1': {"Month":["Jan","Feb","Mar"],
+                        "Income": [9900,9346,9000],
+                        "Saving": (7231.67, 3675,2347)}, 
+    'fiscal_quarter2': {"Month":["Apr","May","Jun"],
+                        "Income": [13400,9789,8690],
+                        "Saving": (9679.32, 786.56,4359)},
+    'fiscal_quarter3': {"Month":["Jul","Aug","Sep"],
+                        "Income": [13202.878,8792.89,8110.87],
+                        "Saving": (9679.32, 786.56,4359)}
+}
+
+# Test
+print("Testing xyzcompany_dict1:")
+check_inner_keys(xyzcompany_dict1)
+
+print("\nTesting xyzcompany_dict2:")
+check_inner_keys(xyzcompany_dict2)
+
+#part b
+def total_income_saving(data_dict):
+    totals = {}
+    for quarter, inner_dict in data_dict.items():
+        total_income = sum(inner_dict["Income"])
+        total_saving = sum(inner_dict["Saving"])
+        totals[quarter] = {"Total_Income": total_income, "Total_Saving": total_saving}
+    return totals
+
+
+# Test on xyzcompany_dict1
+result = total_income_saving(xyzcompany_dict1)
+for q, v in result.items():
+    print(f"{q}: Income = {v['Total_Income']:.2f}, Saving = {v['Total_Saving']:.2f}")
+
+
+
+
+
+
+
+
+
+
