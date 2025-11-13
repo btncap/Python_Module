@@ -1,0 +1,89 @@
+#exercise 1
+import numpy as np
+
+a = np.array([[1,2,3,4],
+              [5,6,7,8],
+              [9,10,11,12]])
+#a)
+print(a)
+
+#b)
+print(a[:, 1:])
+
+#c)
+print(a[:2, [0, 3]])
+
+#d)
+print(a < 7)
+
+#e)
+print(a[a > 4])
+
+#exercise 2
+import numpy as np
+
+a = np.array([[1,2,3,4],
+              [5,6,7,8],
+              [9,10,11,12]])
+#exercise2
+# a)
+row_sum = np.sum(a, axis=1)
+print(row_sum)
+col_sum = np.sum(a, axis=0)
+print(col_sum)
+row_mean = np.mean(a, axis=1)
+print(row_mean)
+col_mean = np.mean(a, axis=0)
+print(col_mean)
+
+# b)
+#Row-wise
+row_mean = np.mean(a, axis=1)
+row_sum = np.sum(a, axis=1)
+row_std = np.std(a, axis=1)
+
+print(row_mean)
+print(row_sum)
+print(row_std)
+#Column-wise
+col_mean = np.mean(a, axis=0)
+col_sum = np.sum(a, axis=0)
+col_std = np.std(a, axis=0)
+
+print(col_mean)
+print(col_sum)
+print(col_std)
+
+#exercise 3
+
+#a)
+import numpy as np
+
+a = np.arange(0, 51, 10)
+b = np.arange(0, 10, 1.5)
+
+print("a:", a)
+print("b:", b)
+
+#b)
+a_col = a.reshape(6, 1)
+print(a_col)
+
+#c)
+a_2x3 = a.reshape(2, 3)
+print(a_2x3)
+
+#d)
+X = a_col + b   # a_col is (6,1), b is (7,) → broadcast → (6,7)
+print(X)
+
+
+
+
+
+
+
+
+
+
+
