@@ -57,7 +57,6 @@ print(col_std)
 #exercise 3
 
 #a)
-import numpy as np
 
 a = np.arange(0, 51, 10)
 b = np.arange(0, 10, 1.5)
@@ -77,9 +76,42 @@ print(a_2x3)
 X = a_col + b   # a_col is (6,1), b is (7,) → broadcast → (6,7)
 print(X)
 
+#exercise 4
+import numpy as np
 
+sales = np.genfromtxt("sales_dept_store.csv", delimiter=",")
+print(sales.shape)
+#a)
+n_stores, n_departments = sales.shape
 
+print("Number of stores:", n_stores)
+print("Number of departments:", n_departments)
+#b)
+stores_with_negative = np.any(sales < 0, axis=1)
+num_stores_with_negative = np.sum(stores_with_negative)
 
+print("Stores with at least one negative sale:", num_stores_with_negative)
+#c)
+dept_means = np.mean(sales, axis=0)
+
+top5_idx = np.argsort(dept_means)[-5:][::-1]
+
+print("Top 5 departments by mean sales:")
+for idx in top5_idx:
+    print(f"Department {idx} → mean sales = {dept_means[idx]:.2f}")
+
+#d)
+store_totals = np.sum(sales, axis=1)
+best_dept_idx = np.argmax(sales, axis=1)
+best_sales = np.max(sales, axis=1)
+best_percent = best_sales / store_totals * 100
+
+for i in range(n_stores):
+    print(
+        f"Store {i+1}: best department = {best_dept_idx[i]}, "
+        f"sales = {best_sales[i]:.2f}, "
+        f"{best_percent[i]:.2f}% of total"
+    )
 
 
 
